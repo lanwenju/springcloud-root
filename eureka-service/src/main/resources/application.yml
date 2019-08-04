@@ -1,0 +1,22 @@
+server:
+  port: 18761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+logging:
+  level:
+    com:
+      netfix:
+        eureka: off
+        discovery: off
+#eureka识别不了thymeleaf手动设置模板路径
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    prefer-file-system-access: false
